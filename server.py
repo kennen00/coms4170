@@ -38,7 +38,10 @@ def build_nav_data(rudiment_id, step):
   elif step == 'practice':
     if next_rudiment:
       nav['next_url'] = url_for('learn', rudiment_id=next_rudiment['id'])
-      nav['next_label'] = next_rudiment['title'] + ' →'
+      nav['next_label'] = 'Next Rudiment →'
+    else:
+      nav['next_url'] = url_for('home')
+      nav['next_label'] = 'Home →'
   
   return nav
 
