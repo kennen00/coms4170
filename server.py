@@ -1,4 +1,4 @@
-import os, json, random, uuid
+import os, json, random, time, uuid
 from flask import Flask, render_template, request, jsonify, url_for
 
 app = Flask(__name__)
@@ -11,6 +11,7 @@ quiz_data = loaded['quiz_data']
 
 quizzes = {}
 mistake_count = 0
+page_visits = {}
 
 def build_nav_data(rudiment_id, step):
   prev_rudiment = next((r for r in data if r['id'] == rudiment_id - 1), None)
@@ -84,6 +85,13 @@ def learn_mistake():
   global mistake_count
   mistake_count += 1
   return jsonify({'mistake_count': mistake_count})
+
+@app.route('/learn/visit', methods=['POST'])
+def learn_visit():
+  path = (request.get_json() or {}).get('path')
+  if path:
+    page_visits[path] = time.time()
+  return jsonify({'page_visits': page_visits})
 
 @app.route('/learn/<int:rudiment_id>')
 def learn(rudiment_id):
