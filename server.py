@@ -10,6 +10,7 @@ data = loaded['data']
 quiz_data = loaded['quiz_data']
 
 quizzes = {}
+mistake_count = 0
 
 def build_nav_data(rudiment_id, step):
   prev_rudiment = next((r for r in data if r['id'] == rudiment_id - 1), None)
@@ -77,6 +78,12 @@ def learn_notation():
     'next_label': data[0]['title'] + ' →',
   }
   return render_template('learn_notation.html', nav=nav)
+
+@app.route('/learn/mistake', methods=['POST'])
+def learn_mistake():
+  global mistake_count
+  mistake_count += 1
+  return jsonify({'mistake_count': mistake_count})
 
 @app.route('/learn/<int:rudiment_id>')
 def learn(rudiment_id):

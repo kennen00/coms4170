@@ -39,6 +39,10 @@ $(document).ready(function () {
             setTimeout(() => stick.removeClass('error'), 200);
             hasError = true;
             showError();
+            $.ajax({
+                url: '/learn/mistake',
+                type: 'POST',
+            });
         }
     }
 
