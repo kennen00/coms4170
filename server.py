@@ -97,6 +97,10 @@ def render_quiz_state(quiz_id):
     total=quiz['total'],
   )
 
+@app.route('/record')
+def record():
+  return render_template('record.html')
+
 @app.route('/quiz/new')
 def quiz_new():
   quiz_id = uuid.uuid4().hex
