@@ -23,3 +23,40 @@
     font-size: 4em;
     font-family: 'IM FELL DW Pica';
 }
+
+.drum-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stick {
+    position: absolute;
+    top: 50%;
+    width: 450px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1;
+}
+
+.stick-left {
+    left: -130px;
+    transform: translateY(-40%) rotate(63deg);
+}
+
+.stick-right {
+    right: -160px;
+    transform: translateY(-40%) rotate(42deg);
+}
+
+.hit-left {
+    transform: translateY(-40%) rotate(105deg);
+}
+
+.hit-right {
+    transform: translateY(-40%) rotate(0deg);
+}
