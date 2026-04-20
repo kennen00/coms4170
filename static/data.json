@@ -1,3 +1,20 @@
 {
-  "data": []
+  "data": [
+    {
+      "id": 1,
+      "title": "Rudiment 1: Single Stroke Roll",
+      "description": "The single stroke roll is the most basic, but most important rudiment. To play it, you alternate strokes between your right and left hands.",
+      "video": "http://www.youtube.com/watch?v=0_wgVPMRaiM",
+      "sequence": [
+        "R",
+        "L",
+        "R",
+        "L",
+        "R",
+        "L",
+        "R",
+        "L"
+      ]
+    }
+  ]
 }
