@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="container text-center">
+    <span class="welcome-text">Click the sticks to drum!</span>
+  </div>
+</div>
+<div class="item-container row center-container"></div>
+
+<script>
+  const data = JSON.parse('{{ data|tojson }}')
+</script>
+{% endblock %}

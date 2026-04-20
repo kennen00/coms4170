@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kennen DeRenard - Drumming Rudiments</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <!-- jQuery UI CSS -->
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=IM Fell DW Pica'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Inter'>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+  <!-- jQuery & jQuery UI CDN -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand navbar-light">
+    <div class="container">
+      <div class="col-3">
+        <a class="navbar-brand" href="{{ url_for('home') }}">Drumming Rudiments</a>
+      </div>
+      <div class="navbar-nav">
+        <a class="btn" href="" id="learn_button">Learn to Play</a>
+        <a class="btn" href="" id="quiz_button">Test your Skills</a>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}
+  <!-- Default content or a placeholder for child pages -->
+  {% endblock %}
+
+  <!-- bootstrap cdn files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
