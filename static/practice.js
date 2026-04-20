@@ -1,9 +1,4 @@
 $(document).ready(function () {
-    const animateStick = (stick, addClass) => {
-        $(stick).addClass(addClass);
-        setTimeout(() => $(stick).removeClass(addClass), 200);
-    };
-
     let currentStep = 0;
     const sequence = rudiment.sequence;
     let isPlaying = false;
@@ -11,6 +6,15 @@ $(document).ready(function () {
 
     function updateNotationHighlight() {
         $('#current-stroke').text(sequence[currentStep]);
+    }
+
+    function showError() {
+        const correctHand = sequence[currentStep] === 'R' ? 'right' : 'left';
+        $('#correct-hand').text(correctHand);
+        $('#error-message').removeClass('error-hidden').addClass('error-visible');
+        if (window.updateNotationArrow) {
+            window.updateNotationArrow(currentStep, true);
+        }
     }
 
     function nextStep() {
@@ -26,39 +30,19 @@ $(document).ready(function () {
         }
     }
 
-    $('#stick-left').on('click', function () {
-        if (sequence[currentStep] === 'L') {
-            animateStick(this, 'hit-left');
+    function handleStickInput(hand) {
+        if (sequence[currentStep] === hand) {
             nextStep();
         } else {
-            $(this).addClass('error');
-            setTimeout(() => $(this).removeClass('error'), 200);
+            const stick = hand === 'L' ? $('#stick-left') : $('#stick-right');
+            stick.addClass('error');
+            setTimeout(() => stick.removeClass('error'), 200);
             hasError = true;
-            const correctHand = sequence[currentStep] === 'R' ? 'right' : 'left';
-            $('#correct-hand').text(correctHand);
-            $('#error-message').removeClass('error-hidden').addClass('error-visible');
-            if (window.updateNotationArrow) {
-                window.updateNotationArrow(currentStep, true);
-            }
+            showError();
         }
-    });
+    }
 
-    $('#stick-right').on('click', function () {
-        if (sequence[currentStep] === 'R') {
-            animateStick(this, 'hit-right');
-            nextStep();
-        } else {
-            $(this).addClass('error');
-            setTimeout(() => $(this).removeClass('error'), 200);
-            hasError = true;
-            const correctHand = sequence[currentStep] === 'R' ? 'right' : 'left';
-            $('#correct-hand').text(correctHand);
-            $('#error-message').removeClass('error-hidden').addClass('error-visible');
-            if (window.updateNotationArrow) {
-                window.updateNotationArrow(currentStep, true);
-            }
-        }
-    });
+    window.onStickInput = handleStickInput;
 
     updateNotationHighlight();
     if (window.updateNotationArrow) {
