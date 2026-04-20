@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 class="text-muted">Question {{ q_num }} of {{ total }}</h2>
+            <h1>Play: {{ rudiment.title }}</h1>
+            <p class="text-muted small">Keyboard: press <strong>F</strong> or <strong>←</strong> for left stick, and
+                <strong>J</strong> or <strong>→</strong> for right stick.</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <div id="vexflow-container"></div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-12">
+            {% include 'drum.html' %}
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <div class="btn-group" role="group">
+                <button id="quiz-reset" class="btn btn-outline-secondary d-none">Reset</button>
+                <button id="quiz-submit" class="btn btn-outline-primary d-none">Submit →</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VexFlow CDN -->
+<script src="https://cdn.jsdelivr.net/npm/vexflow/build/vexflow.js"></script>
+<script>
+    const expectedLength = {{ sequence_length }};
+    const quizId = {{ quiz_id | tojson }};
+</script>
+<script src="{{ url_for('static', filename='quiz.js') }}"></script>
+{% endblock %}

@@ -48,5 +48,46 @@
         "L"
       ]
     }
+  ],
+  "quiz_data": [
+    {
+      "title": "Single Stroke Roll",
+      "sequence": [
+        "R",
+        "L",
+        "R",
+        "L",
+        "R",
+        "L",
+        "R",
+        "L"
+      ]
+    },
+    {
+      "title": "Double Stroke Roll",
+      "sequence": [
+        "R",
+        "R",
+        "L",
+        "L",
+        "R",
+        "R",
+        "L",
+        "L"
+      ]
+    },
+    {
+      "title": "Paradiddle",
+      "sequence": [
+        "R",
+        "L",
+        "R",
+        "R",
+        "L",
+        "R",
+        "L",
+        "L"
+      ]
+    }
   ]
 }
