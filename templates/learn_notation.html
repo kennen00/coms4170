@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>Notation</h1>
+            <p class="lead">Drum rudiments are written using the percussion clef. Here are the pieces you will see on
+                each rudiment's notation.</p>
+        </div>
+    </div>
+
+    <div class="row mt-4 align-items-center">
+        <div class="col-md-4">
+            <div id="notation-clef" class="notation-example"></div>
+        </div>
+        <div class="col-md-8">
+            <h4>Percussion Clef</h4>
+            <p>The two vertical bars at the start of the staff identify it as a percussion staff (used for unpitched
+                instruments like the snare drum).</p>
+        </div>
+    </div>
+
+    <div class="row mt-4 align-items-center">
+        <div class="col-md-4">
+            <div id="notation-note" class="notation-example"></div>
+        </div>
+        <div class="col-md-8">
+            <h4>Eighth Note</h4>
+            <p>Each filled note head with a flag (or beam) represents one stroke. Rudiments in this course use eighth
+                notes, beamed together in groups of four.</p>
+        </div>
+    </div>
+
+    <div class="row mt-4 align-items-center">
+        <div class="col-md-4">
+            <div id="notation-right" class="notation-example"></div>
+        </div>
+        <div class="col-md-8">
+            <h4>Right Hand (R)</h4>
+            <p>An "R" beneath a note means you play that stroke with your right hand.</p>
+        </div>
+    </div>
+
+    <div class="row mt-4 align-items-center">
+        <div class="col-md-4">
+            <div id="notation-left" class="notation-example"></div>
+        </div>
+        <div class="col-md-8">
+            <h4>Left Hand (L)</h4>
+            <p>An "L" beneath a note means you play that stroke with your left hand.</p>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</div>
+
+<!-- VexFlow CDN -->
+<script src="https://cdn.jsdelivr.net/npm/vexflow/build/vexflow.js"></script>
+<script src="{{ url_for('static', filename='learn_notation.js') }}"></script>
+{% endblock %}
