@@ -60,3 +60,23 @@
 .hit-right {
     transform: translateY(-40%) rotate(0deg);
 }
+
+.notation-arrow {
+    pointer-events: none;
+    transition: fill 0.2s ease;
+}
+
+.notation-arrow.error {
+    fill: #dc3545;
+}
+
+.error-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.error-visible {
+    opacity: 1;
+    visibility: visible;
+}

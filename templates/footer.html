@@ -1,0 +1,23 @@
+<div class="mt-5 pt-4 border-top">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="btn-group" role="group">
+                {% if nav.prev_url %}
+                <a href="{{ nav.prev_url }}" class="btn btn-outline-primary">
+                    {{ nav.prev_label }}
+                </a>
+                {% else %}
+                <button class="btn btn-outline-secondary" disabled>← Previous</button>
+                {% endif %}
+
+                {% if nav.next_url %}
+                <a href="{{ nav.next_url }}" class="btn btn-outline-primary">
+                    {{ nav.next_label }}
+                </a>
+                {% else %}
+                <button class="btn btn-outline-secondary" disabled>Next →</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

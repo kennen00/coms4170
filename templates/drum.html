@@ -1,13 +1,11 @@
-<div class="container mt-5">
-  <div class="drum-container">
-    <img src="{{ url_for('static', filename='drum_stick.png') }}" alt="Left drum stick" class="stick stick-left"
-      id="stick-left" draggable="false">
+<div class="drum-container">
+  <img src="{{ url_for('static', filename='drum_stick.png') }}" alt="Left drum stick" class="stick stick-left"
+    id="stick-left" draggable="false">
 
-    <img src="{{ url_for('static', filename='drum.png') }}" alt="Drum" class="img-fluid" draggable="false">
+  <img src="{{ url_for('static', filename='drum.png') }}" alt="Drum" class="img-fluid" draggable="false">
 
-    <img src="{{ url_for('static', filename='drum_stick.png') }}" alt="Right drum stick" class="stick stick-right"
-      id="stick-right" draggable="false">
-  </div>
+  <img src="{{ url_for('static', filename='drum_stick.png') }}" alt="Right drum stick" class="stick stick-right"
+    id="stick-right" draggable="false">
 </div>
 
 <script src="{{ url_for('static', filename='drum.js') }}"></script>

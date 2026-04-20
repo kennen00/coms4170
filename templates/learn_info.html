@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ rudiment.title }}</h1>
+            <p class="lead">{{ rudiment.description }}</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3>Notation</h3>
+            <div id="vexflow-container" data-sequence='{{ rudiment.sequence | tojson }}'></div>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</div>
+
+<!-- VexFlow CDN -->
+<script src="https://cdn.jsdelivr.net/npm/vexflow/build/vexflow.js"></script>
+<script src="{{ url_for('static', filename='learn.js') }}"></script>
+{% endblock %}
