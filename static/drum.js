@@ -4,25 +4,32 @@ $(document).ready(function () {
         setTimeout(() => $(stick).removeClass(addClass), 200);
     };
 
-    const soundPool = [];
-    const poolSize = 5;
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = new AudioCtx();
+    let snareBuffer = null;
 
-    for (let i = 0; i < poolSize; i++) {
-        soundPool.push(new Audio('/static/snare_sound.mp3'));
+    fetch('/static/snare_sound.mp3')
+        .then(response => response.arrayBuffer())
+        .then(data => audioCtx.decodeAudioData(data))
+        .then(buffer => { snareBuffer = buffer; })
+        .catch(e => console.log('Audio load failed:', e));
+
+    function playSnare() {
+        if (!snareBuffer) return;
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+        const source = audioCtx.createBufferSource();
+        source.buffer = snareBuffer;
+        source.connect(audioCtx.destination);
+        source.start(audioCtx.currentTime + 0.05);
     }
-
-    let currentSoundIndex = 0;
 
     window.playStick = function (hand) {
         const stick = hand === 'L' ? $('#stick-left') : $('#stick-right');
         const hitClass = hand === 'L' ? 'hit-left' : 'hit-right';
         animateStick(stick, hitClass);
-
-        const sound = soundPool[currentSoundIndex];
-        sound.currentTime = 0;
-        sound.play().catch(e => console.log('Audio play failed:', e));
-
-        currentSoundIndex = (currentSoundIndex + 1) % poolSize;
+        playSnare();
     };
 
     $('#stick-left').on('click', function () {
