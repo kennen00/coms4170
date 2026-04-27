@@ -12,8 +12,8 @@
   <!-- jQuery UI CSS -->
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=IM Fell DW Pica'>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Inter'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Pacifico'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Merriweather:400,700'>
 
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
@@ -26,12 +26,12 @@
   <nav class="navbar navbar-expand navbar-light">
     <div class="container">
       <div class="col-3">
-        <a class="navbar-brand" href="{{ url_for('home') }}">Drumming Rudiments</a>
+        <a class="navbar-brand" href="{{ url_for('home') }}">Drumsticks</a>
       </div>
       <div class="navbar-nav">
         <a class="btn" href="{{ url_for('learn_intro') }}" id="learn_button">Learn to Play</a>
-        <a class="btn" href="{{ url_for('quiz_new') }}" id="quiz_button">Test your Skills</a>
-        <a class="btn" href="{{ url_for('record') }}" id="record_button">Record Your Own</a>
+        <a class="btn" href="{{ url_for('quiz_new') }}" id="quiz_button">Test your skills</a>
+        <a class="btn" href="{{ url_for('record') }}" id="record_button">Record Music</a>
       </div>
     </div>
   </nav>

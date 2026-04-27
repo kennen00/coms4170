@@ -1,17 +1,30 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container mt-5">
-  <div class="container text-center">
-    <span class="welcome-text">Click the sticks to drum!</span>
-    <p>Keyboard: press F or ← for left stick, and J or → for right stick.</p>
+<div class="container mt-5 text-center">
+  <div class="home-title-row">
+    <h1 class="home-title">Drumsticks</h1>
+  </div>
+
+  <p class="home-welcome mt-3">Hi there! Welcome to Drum Sticks, where rhythm starts simple,<br>learning stays fun, and
+    every beat counts.</p>
+
+  <div class="row mt-5 align-items-center justify-content-center">
+    <div class="col-md-3">
+      <a href="{{ url_for('learn_intro') }}" class="home-card">
+        <h2>Learn to Play</h2>
+        <p>Turn random table-tapping into actual drumming skills, one beat at a time.</p>
+      </a>
+    </div>
+    <div class="col-md-6">
+      {% include 'drum.html' %}
+    </div>
+    <div class="col-md-3">
+      <a href="{{ url_for('quiz_new') }}" class="home-card">
+        <h2>Test Your Skills</h2>
+        <p>Find out if you've got rhythm &mdash; or just confidence.</p>
+      </a>
+    </div>
   </div>
 </div>
-<div class="item-container row center-container"></div>
-
-{% include "drum.html" %}
-
-<script>
-  const data = JSON.parse('{{ data|tojson }}')
-</script>
 {% endblock %}
