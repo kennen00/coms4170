@@ -118,6 +118,34 @@ body {
     margin: 0;
 }
 
+.home-emoji {
+    display: inline-block;
+    transform-origin: 50% 80%;
+    animation: home-emoji-swing 4s ease-in-out infinite;
+}
+
+@keyframes home-emoji-swing {
+    0% { transform: rotate(0deg); }
+    6.25% { transform: rotate(-30deg); }
+    12.5% { transform: rotate(0deg); }
+    18.75% { transform: rotate(30deg); }
+    25% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.home-emoji-right {
+    animation-name: home-emoji-swing-right;
+}
+
+@keyframes home-emoji-swing-right {
+    0% { transform: scaleX(-1) rotate(0deg); }
+    6.25% { transform: scaleX(-1) rotate(-30deg); }
+    12.5% { transform: scaleX(-1) rotate(0deg); }
+    18.75% { transform: scaleX(-1) rotate(30deg); }
+    25% { transform: scaleX(-1) rotate(0deg); }
+    100% { transform: scaleX(-1) rotate(0deg); }
+}
+
 .home-welcome {
     font-size: 1.1em;
     color: #333;
