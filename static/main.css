@@ -39,10 +39,20 @@ small, .small {
     max-width: 65ch;
 }
 
+.prose {
+    font-size: var(--fs-h2);
+}
+
 .text-center .lead,
 .text-center .prose {
     margin-left: auto;
     margin-right: auto;
+}
+
+.page-fill {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {

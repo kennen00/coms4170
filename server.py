@@ -31,27 +31,18 @@ def build_nav_data(rudiment_id, step):
     else:
       nav['prev_url'] = url_for('learn_notation')
       nav['prev_label'] = '← Notation'
-  elif step == 'video':
-    nav['prev_url'] = url_for('learn', rudiment_id=rudiment_id)
-    nav['prev_label'] = '← Basics'
-  elif step == 'practice':
-    nav['prev_url'] = url_for('learn_video', rudiment_id=rudiment_id)
-    nav['prev_label'] = '← Video'
-  
-  if step == 'info':
-    nav['next_url'] = url_for('learn_video', rudiment_id=rudiment_id)
-    nav['next_label'] = 'Video →'
-  elif step == 'video':
     nav['next_url'] = url_for('learn_practice', rudiment_id=rudiment_id)
     nav['next_label'] = 'Practice →'
   elif step == 'practice':
+    nav['prev_url'] = url_for('learn', rudiment_id=rudiment_id)
+    nav['prev_label'] = '← Basics'
     if next_rudiment:
       nav['next_url'] = url_for('learn', rudiment_id=next_rudiment['id'])
       nav['next_label'] = 'Next Rudiment →'
     else:
       nav['next_url'] = url_for('quiz_new')
       nav['next_label'] = 'Start Quiz →'
-  
+
   return nav
 
 @app.route('/')
@@ -97,17 +88,9 @@ def learn_visit():
 def learn(rudiment_id):
   global data
   rudiment = next((r for r in data if r['id'] == rudiment_id), None)
-  
+
   nav = build_nav_data(rudiment_id, 'info')
   return render_template('learn_info.html', rudiment=rudiment, nav=nav)
-
-@app.route('/learn/<int:rudiment_id>/video')
-def learn_video(rudiment_id):
-  global data
-  rudiment = next((r for r in data if r['id'] == rudiment_id), None)
-  
-  nav = build_nav_data(rudiment_id, 'video')
-  return render_template('learn_video.html', rudiment=rudiment, nav=nav)
 
 @app.route('/learn/<int:rudiment_id>/practice')
 def learn_practice(rudiment_id):

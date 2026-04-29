@@ -1,18 +1,29 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container mt-5 page-fill">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 text-center">
             <h1>{{ rudiment.title }}</h1>
-            <p class="lead">{{ rudiment.description }}</p>
         </div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-12">
-            <h3>Notation</h3>
-            <div id="vexflow-container" data-sequence='{{ rudiment.sequence | tojson }}'></div>
+    <div class="mt-5"></div>
+    <div class="row align-items-start flex-grow-1 mt-5 pt-5">
+        <div class="col-md-6">
+            <p class="prose">{{ rudiment.description }}</p>
+            <div class="vexflow-scroll mt-3">
+                <div id="vexflow-container" data-sequence='{{ rudiment.sequence | tojson }}'></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/{{ rudiment.video.split('v=')[1] }}"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </div>
 
