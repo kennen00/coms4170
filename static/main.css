@@ -134,10 +134,6 @@ small, .small {
     max-width: 100%;
 }
 
-.vexflow-scroll>div {
-    display: inline-block;
-}
-
 .home-title-row {
     display: flex;
     align-items: center;
