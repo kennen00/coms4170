@@ -1,30 +1,33 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container mt-5 page-fill">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 text-center">
             <h1>{{ rudiment.title }}</h1>
+            <p class="text-muted small">Click the drumsticks in the correct sequence shown in the notation.
+                Keyboard: press <strong>F</strong> or <strong>←</strong> for left stick, and
+                <strong>J</strong> or <strong>→</strong> for right stick.</p>
         </div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <h3>Notation</h3>
+    <div class="row mt-3">
+        <div class="col-12 text-center">
             <div id="vexflow-container" data-sequence='{{ rudiment.sequence | tojson }}'></div>
         </div>
-        <div class="col-md-6">
-            <h3>Practice</h3>
-            <p>Click the drumsticks in the correct sequence shown in the notation. The sequence will repeat when you
-                complete it.</p>
-            <p class="text-muted small">Keyboard: press <strong>F</strong> or <strong>←</strong> for left stick, and
-                <strong>J</strong> or <strong>→</strong> for right stick.</p>
-            <div class="mb-3">
-                <strong>Next stroke: <span id="current-stroke">R</span></strong>
-            </div>
-            <div id="error-message" class="alert alert-danger mb-3 error-hidden">
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-12 text-center">
+            <div><strong>Next stroke: <span id="current-stroke">R</span></strong></div>
+            <div id="error-message" class="alert alert-danger mt-2 mb-0 error-hidden d-inline-block">
                 <strong>Try again! This note should be played by the <span id="correct-hand">right</span> hand.</strong>
             </div>
+        </div>
+    </div>
+
+    <div class="row mt-auto pb-3">
+        <div class="col-12">
             {% include 'drum.html' %}
         </div>
     </div>

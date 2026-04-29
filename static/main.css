@@ -87,14 +87,14 @@ small, .small {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 600px;
+    max-width: 350px;
     margin: 0 auto;
 }
 
 .stick {
     position: absolute;
     top: 50%;
-    width: 450px;
+    width: 260px;
     transition: transform 0.2s ease;
     cursor: pointer;
     user-select: none;
@@ -102,12 +102,12 @@ small, .small {
 }
 
 .stick-left {
-    left: -130px;
+    left: -75px;
     transform: translateY(-40%) rotate(63deg);
 }
 
 .stick-right {
-    right: -160px;
+    right: -95px;
     transform: translateY(-40%) rotate(42deg);
 }
 
