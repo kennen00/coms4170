@@ -1,5 +1,6 @@
 :root {
     --fs-display: 6rem;
+    --fs-display-sm: 3.5rem;
     --fs-h1: 2.5rem;
     --fs-h2: 1.5rem;
     --fs-body: 1rem;
@@ -191,6 +192,21 @@ small, .small {
     max-width: 48ch;
     margin-left: auto;
     margin-right: auto;
+    text-wrap: balance;
+}
+
+.score-label {
+    font-size: var(--fs-h1);
+    color: var(--c-text);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.score-display {
+    font-size: var(--fs-display-sm);
+    color: var(--c-text);
+    margin: 0;
+    line-height: 1.2;
     text-wrap: balance;
 }
 

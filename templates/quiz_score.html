@@ -1,21 +1,51 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h1>Quiz Complete!</h1>
-            <p class="lead mt-4">You scored <strong>{{ score }}</strong> out of <strong>{{ total }}</strong>.</p>
-        </div>
-    </div>
+<div class="container mt-5 text-center page-fill">
+    <p class="score-label">{% if score >= 2 %}Congrats! {% endif %}You scored:</p>
+    <p class="score-display mt-2"><strong>{{ score }}</strong>/<strong>{{ total }}</strong></p>
 
-    <div class="row mt-4">
-        <div class="col-12 text-center">
-            <div class="btn-group" role="group">
-                <a href="{{ url_for('quiz_new') }}" class="btn btn-main">Try Again</a>
-                <a href="{{ url_for('home') }}" class="btn btn-outline-secondary">Home</a>
-            </div>
+    {% if score >= 2 %}
+    <p class="home-welcome mt-5 pt-3">Now you're ready to take the next step in the drumming world. Learn more techniques, or
+        build your own beats.</p>
+    {% else %}
+    <p class="home-welcome mt-5 pt-3">Nice effort, but you may want to study up some more before moving on.</p>
+    {% endif %}
+
+    <div class="row mt-auto pb-5 mb-4 align-items-center justify-content-center">
+        {% if score >= 2 %}
+        <div class="col-md-3">
+            <a href="https://www.drumeo.com/beat/rudiments/" class="home-card" target="_blank" rel="noopener">
+                <h2>Learn more rudiments</h2>
+                <p>Dive deeper into the world of drumming with more advanced patterns.</p>
+            </a>
         </div>
+        <div class="col-md-6">
+            {% include 'drum.html' %}
+        </div>
+        <div class="col-md-3">
+            <a href="{{ url_for('record') }}" class="home-card">
+                <h2>Make your own rudiment</h2>
+                <p>Turn your new skills into something you can call your own.</p>
+            </a>
+        </div>
+        {% else %}
+        <div class="col-md-3">
+            <a href="{{ url_for('learn_intro') }}" class="home-card">
+                <h2>Review your learning</h2>
+                <p>Revisit the rudiments and get comfortable with the basics.</p>
+            </a>
+        </div>
+        <div class="col-md-6">
+            {% include 'drum.html' %}
+        </div>
+        <div class="col-md-3">
+            <a href="{{ url_for('quiz_new') }}" class="home-card">
+                <h2>Try again</h2>
+                <p>Another round of the quiz is only a click away.</p>
+            </a>
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
