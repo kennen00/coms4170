@@ -152,7 +152,10 @@ body {
 }
 
 .home-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 180px;
     border: 2px solid #b8651b;
     border-radius: 12px;
     padding: 20px;
@@ -177,4 +180,22 @@ body {
 .home-card p {
     margin: 0;
     color: #333;
+}
+
+.btn-main {
+    border: 2px solid #b8651b;
+    color: #b8651b;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.btn-main:hover {
+    background-color: #fdd4ad;
+    color: #b8651b;
+}
+
+.btn-main-disabled {
+    border: 2px solid #c9a380;
+    color: #c9a380;
+    background-color: transparent;
 }
