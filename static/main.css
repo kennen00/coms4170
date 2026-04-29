@@ -1,13 +1,52 @@
+:root {
+    --fs-display: 6rem;
+    --fs-h1: 2.5rem;
+    --fs-h2: 1.5rem;
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+
+    --c-base: #f9f1db;
+    --c-accent: #b45f06;
+    --c-accent-soft: #fdd4ad;
+    --c-text: #333333;
+    --c-muted: #9a9a9a;
+}
+
 * {
     font-family: 'Merriweather';
 }
 
 body {
-    background-color: #f9f1db;
+    background-color: var(--c-base);
+    font-size: var(--fs-body);
+    color: var(--c-text);
+}
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2, h3, h4 {
+    font-size: var(--fs-h2);
+}
+
+small, .small {
+    font-size: var(--fs-small);
+}
+
+.lead,
+.prose {
+    max-width: 65ch;
+}
+
+.text-center .lead,
+.text-center .prose {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .navbar {
-    background-color: #b45f06;
+    background-color: var(--c-accent);
 }
 
 .navbar .navbar-brand,
@@ -22,7 +61,7 @@ body {
 
 .navbar-brand {
     font-family: 'Pacifico';
-    font-size: xx-large;
+    font-size: var(--fs-h2);
     width: 100%;
 }
 
@@ -31,11 +70,6 @@ body {
     align-items: center;
     vertical-align: center;
     text-align: center;
-}
-
-.welcome-text {
-    font-size: 4em;
-    font-family: 'Merriweather';
 }
 
 .drum-container {
@@ -113,8 +147,8 @@ body {
 
 .home-title {
     font-family: 'Pacifico';
-    font-size: 6em;
-    color: #5a5a5a;
+    font-size: var(--fs-display);
+    color: var(--c-text);
     margin: 0;
 }
 
@@ -147,8 +181,11 @@ body {
 }
 
 .home-welcome {
-    font-size: 1.1em;
-    color: #333;
+    color: var(--c-text);
+    max-width: 48ch;
+    margin-left: auto;
+    margin-right: auto;
+    text-wrap: balance;
 }
 
 .home-card {
@@ -156,7 +193,7 @@ body {
     flex-direction: column;
     justify-content: center;
     min-height: 180px;
-    border: 2px solid #b8651b;
+    border: 2px solid var(--c-accent);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
@@ -166,36 +203,35 @@ body {
 }
 
 .home-card:hover {
-    background-color: #fdd4ad;
+    background-color: var(--c-accent-soft);
     text-decoration: none;
     color: inherit;
 }
 
 .home-card h2 {
-    color: #b8651b;
-    font-family: 'Merriweather';
+    color: var(--c-accent);
     margin-bottom: 10px;
 }
 
 .home-card p {
     margin: 0;
-    color: #333;
+    color: var(--c-text);
 }
 
 .btn-main {
-    border: 2px solid #b8651b;
-    color: #b8651b;
+    border: 2px solid var(--c-accent);
+    color: var(--c-accent);
     background-color: transparent;
     transition: background-color 0.2s ease;
 }
 
 .btn-main:hover {
-    background-color: #fdd4ad;
-    color: #b8651b;
+    background-color: var(--c-accent-soft);
+    color: var(--c-accent);
 }
 
 .btn-main-disabled {
-    border: 2px solid #c9a380;
-    color: #c9a380;
+    border: 2px solid var(--c-muted);
+    color: var(--c-muted);
     background-color: transparent;
 }
