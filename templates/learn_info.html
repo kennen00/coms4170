@@ -13,13 +13,13 @@
         <div class="col-md-6">
             <p class="prose">{{ rudiment.description }}</p>
             <div class="vexflow-scroll mt-3">
-                <div id="vexflow-container" data-sequence='{{ rudiment.sequence | tojson }}'></div>
+                <div id="vexflow-container" data-sequence='{{ rudiment.sequence | tojson }}' role="img" aria-label="{{ rudiment.title }} notation"></div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="ratio ratio-16x9">
                 <iframe src="https://www.youtube.com/embed/{{ rudiment.video.split('v=')[1] }}?end={{ rudiment.video_end }}"
-                    title="YouTube video player" frameborder="0"
+                    title="{{ rudiment.title }} demonstration video" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
