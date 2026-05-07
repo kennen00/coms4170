@@ -63,11 +63,22 @@ small, .small {
 .navbar .navbar-brand,
 .navbar .btn {
     color: #ffffff;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar .btn {
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+}
+
+.navbar .btn:hover,
+.navbar .navbar-brand:hover {
+    color: #ffffff;
+    opacity: 0.85;
 }
 
 .navbar .btn:hover {
-    color: #ffffff;
-    opacity: 0.85;
+    border-bottom-color: #ffffff;
 }
 
 .navbar-brand {
