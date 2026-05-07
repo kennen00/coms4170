@@ -42,17 +42,24 @@ $(document).ready(function () {
         window.onStickInput && window.onStickInput('R');
     });
 
+    const heldKeys = new Set();
+
     $(document).on('keydown', function (event) {
         const key = event.key.toLowerCase();
-        if (key === 'f' || key === 'arrowleft') {
-            event.preventDefault();
-            window.playStick('L');
-            window.onStickInput && window.onStickInput('L');
-        }
-        if (key === 'j' || key === 'arrowright') {
-            event.preventDefault();
-            window.playStick('R');
-            window.onStickInput && window.onStickInput('R');
-        }
+        const isLeft = key === 'f' || key === 'arrowleft';
+        const isRight = key === 'j' || key === 'arrowright';
+        if (!isLeft && !isRight) return;
+
+        event.preventDefault();
+        if (heldKeys.has(key)) return;
+        heldKeys.add(key);
+
+        const hand = isLeft ? 'L' : 'R';
+        window.playStick(hand);
+        window.onStickInput && window.onStickInput(hand);
+    });
+
+    $(document).on('keyup', function (event) {
+        heldKeys.delete(event.key.toLowerCase());
     });
 });
