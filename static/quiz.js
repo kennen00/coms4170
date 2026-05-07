@@ -60,8 +60,8 @@ $(document).ready(function () {
 
         if (playedSequence.length >= expectedLength) {
             inputLocked = true;
-            resetBtn.removeClass('d-none');
-            submitBtn.removeClass('d-none');
+            resetBtn.removeClass('invisible');
+            submitBtn.removeClass('invisible');
         }
     }
 
@@ -69,8 +69,8 @@ $(document).ready(function () {
         playedSequence = [];
         inputLocked = false;
         renderNotation();
-        resetBtn.addClass('d-none');
-        submitBtn.addClass('d-none');
+        resetBtn.addClass('invisible');
+        submitBtn.addClass('invisible');
     }
 
     function submit() {
