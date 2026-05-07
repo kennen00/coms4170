@@ -109,6 +109,16 @@ $(document).ready(function () {
         updateExportButton();
     }
 
+    function deleteLast() {
+        if (recordedSequence.length === 0) return;
+        recordedSequence.pop();
+        renderNotation();
+        if (recordedSequence.length === 0) {
+            resetBtn.addClass('d-none');
+        }
+        updateExportButton();
+    }
+
     function escapeXml(str) {
         return str.replace(/[<>&'"]/g, c => ({
             '<': '&lt;',
@@ -160,10 +170,32 @@ $(document).ready(function () {
         updateExportButton();
     });
 
+    nameInput.on('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            nameInput.blur();
+        }
+    });
+
     window.onStickInput = handleStickInput;
     resetBtn.on('click', reset);
     exportBtn.on('click', exportSvg);
     $(window).on('resize', renderNotation);
+
+    $(document).on('keydown', function (event) {
+        const target = event.target;
+        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
+        if (event.repeat) return;
+        if (event.key === 'Backspace') {
+            event.preventDefault();
+            deleteLast();
+        } else if (event.key === 'Enter') {
+            if (!exportBtn.prop('disabled')) {
+                event.preventDefault();
+                exportSvg();
+            }
+        }
+    });
 
     renderNotation();
     updateExportButton();

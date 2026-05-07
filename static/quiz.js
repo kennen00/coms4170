@@ -73,6 +73,17 @@ $(document).ready(function () {
         submitBtn.addClass('invisible');
     }
 
+    function deleteLast() {
+        if (playedSequence.length === 0) return;
+        playedSequence.pop();
+        if (inputLocked) {
+            inputLocked = false;
+            resetBtn.addClass('invisible');
+            submitBtn.addClass('invisible');
+        }
+        renderNotation();
+    }
+
     function submit() {
         submitBtn.prop('disabled', true);
         resetBtn.prop('disabled', true);
@@ -94,6 +105,21 @@ $(document).ready(function () {
     window.onStickInput = handleStickInput;
     resetBtn.on('click', reset);
     submitBtn.on('click', submit);
+
+    $(document).on('keydown', function (event) {
+        const target = event.target;
+        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
+        if (event.repeat) return;
+        if (event.key === 'Backspace') {
+            event.preventDefault();
+            deleteLast();
+        } else if (event.key === 'Enter') {
+            if (inputLocked && !submitBtn.prop('disabled')) {
+                event.preventDefault();
+                submit();
+            }
+        }
+    });
 
     renderNotation();
 });
