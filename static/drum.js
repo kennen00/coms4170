@@ -45,6 +45,9 @@ $(document).ready(function () {
     const heldKeys = new Set();
 
     $(document).on('keydown', function (event) {
+        const target = event.target;
+        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
+
         const key = event.key.toLowerCase();
         const isLeft = key === 'f' || key === 'arrowleft';
         const isRight = key === 'j' || key === 'arrowright';
