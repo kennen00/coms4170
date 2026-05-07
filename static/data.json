@@ -5,6 +5,7 @@
       "title": "Rudiment 1: Single Stroke Roll",
       "description": "The single stroke roll is the most basic, but most important rudiment. To play it, you alternate strokes between your right and left hands.",
       "video": "http://www.youtube.com/watch?v=0_wgVPMRaiM",
+      "video_end": 26,
       "sequence": [
         "R",
         "L",
@@ -21,6 +22,7 @@
       "title": "Rudiment 2: Double Stroke Roll",
       "description": "The double stroke roll is one of the most common rudiments and is foundational for speed. To play it, you play two strokes on one hand followed by two strokes on the other.",
       "video": "http://www.youtube.com/watch?v=IP_AzJIeYl4",
+      "video_end": 29,
       "sequence": [
         "R",
         "R",
@@ -37,6 +39,7 @@
       "title": "Rudiment 3: Paradiddle",
       "description": "The paradiddle combines single strokes and double strokes. To play it, you play two single strokes followed by a double stroke, and then the same starting on the other hand.",
       "video": "http://www.youtube.com/watch?v=h0OoVP6VgBE",
+      "video_end": 30,
       "sequence": [
         "R",
         "L",
