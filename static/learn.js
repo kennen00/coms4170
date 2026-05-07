@@ -90,6 +90,7 @@ $(document).ready(function () {
                 }
             } else {
                 arrow.setAttribute('opacity', '0');
+                arrow.setAttribute('fill', '#28a745');
             }
         });
     };
