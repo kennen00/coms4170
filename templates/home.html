@@ -11,17 +11,17 @@
     every beat counts.</p>
   <p class="text-muted small mt-2">by Kennen DeRenard</p>
 
-  <div class="row mt-auto pb-5 mb-4 align-items-center justify-content-center">
-    <div class="col-md-3">
+  <div class="row flex-fill pb-5 mb-4 justify-content-center">
+    <div class="col-md-3 align-self-md-center">
       <a href="{{ url_for('learn_intro') }}" class="home-card">
         <h2>Learn to Play</h2>
         <p>Turn random table-tapping into actual drumming skills, one beat at a time.</p>
       </a>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 align-self-md-end">
       {% include 'drum.html' %}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 align-self-md-center">
       <a href="{{ url_for('quiz_new') }}" class="home-card">
         <h2>Test Your Skills</h2>
         <p>Find out if you've got rhythm, or just confidence.</p>

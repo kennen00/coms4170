@@ -246,6 +246,10 @@ small, .small {
     margin-bottom: 10px;
 }
 
+.notation-title {
+    color: var(--c-accent);
+}
+
 .home-card p {
     margin: 0;
     color: var(--c-text);

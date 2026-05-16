@@ -12,34 +12,34 @@
     <p class="home-welcome mt-5 pt-3">Nice effort, but you may want to study up some more before moving on.</p>
     {% endif %}
 
-    <div class="row mt-auto pb-5 mb-4 align-items-center justify-content-center">
+    <div class="row flex-fill pb-5 mb-4 justify-content-center">
         {% if score >= 2 %}
-        <div class="col-md-3">
+        <div class="col-md-3 align-self-md-center">
             <a href="https://www.drumeo.com/beat/rudiments/" class="home-card" target="_blank" rel="noopener">
                 <h2>Learn more rudiments</h2>
                 <p>Dive deeper into the world of drumming with more advanced patterns.</p>
             </a>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 align-self-md-end">
             {% include 'drum.html' %}
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 align-self-md-center">
             <a href="{{ url_for('record') }}" class="home-card">
                 <h2>Make your own rudiment</h2>
                 <p>Turn your new skills into something you can call your own.</p>
             </a>
         </div>
         {% else %}
-        <div class="col-md-3">
+        <div class="col-md-3 align-self-md-center">
             <a href="{{ url_for('learn_intro') }}" class="home-card">
                 <h2>Review your learning</h2>
                 <p>Revisit the rudiments and get comfortable with the basics.</p>
             </a>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 align-self-md-end">
             {% include 'drum.html' %}
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 align-self-md-center">
             <a href="{{ url_for('quiz_new') }}" class="home-card">
                 <h2>Try again</h2>
                 <p>Another round of the quiz is only a click away.</p>
